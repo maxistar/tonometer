@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       response: false,
-      endpoint: "http://localhost:3000"
+      endpoint: process.env.BACKEND_URL
     };
   }
   componentDidMount() {

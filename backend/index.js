@@ -3,16 +3,21 @@ import { Server } from 'socket.io';
 import http from 'http';
 import index from './routes/index.js';
 import Influx from 'influx';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const port = process.env.PORT || 3002;
 const app = express();
 
 const server = http.createServer(app);
 const io = new Server(server);
 
-app.use('/', index);
-app.use(express.static('/home/maxim/projects/ton/tonometer/frontend/public/'));
-const influx = new Influx.InfluxDB('http://10.8.1.19:8086/db0');
+app.use('/alive', index);
+const options = {
+    index: "index.html"
+};
+app.use(express.static(process.env.STATIC_FILES, options));
+const influx = new Influx.InfluxDB(process.env.INFLUXDB_URL);
 
 const getApiAndEmit = async socket => {
     try {
