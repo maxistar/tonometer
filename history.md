@@ -1,3 +1,9 @@
+14.11.2021
++ setup socket.io
++ setup connection to redis
+- setup server
+- setup proxi
++ tonometer.xyz
 
 13.11.2021
 Frontend
@@ -11,5 +17,9 @@ Deployment
 ton.ztools.org - free
 Possible domains to buy:
 moniton.xyz - 1.20EURO on godaddy
+tomon.xyz uses Prometheus:
+https://prometheus.io/docs/prometheus/latest/getting_started/
+
+curl -i -XPOST "http://10.8.1.19:8086/write?db=db0" --data-binary=@toncoin
 
 12.11.2021
