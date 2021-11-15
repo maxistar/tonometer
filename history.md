@@ -2,12 +2,9 @@
 Submit To Contest!
 16.11.2021
 15.11.2021
-- add material design
-- create a layout 
++ add material design
++ create a layout 
   - https://github.com/minimal-ui-kit/material-kit-react ?
-
-    yarn add "@babel/core"    "@babel/eslint-parser"    "eslint-config-airbnb"    "eslint-config-prettier"    "eslint-config-react-app"    "eslint-plugin-flowtype"    "eslint-plugin-import"    "eslint-plugin-jsx-a11y"    "eslint-plugin-prettier"    "eslint-plugin-react"    "eslint-plugin-react-hooks" -D
-
 - add data importer to repo
 - create Telegram Bot/Channel
 - make instructions
