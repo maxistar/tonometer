@@ -12,7 +12,9 @@ class Status extends Component {
   componentDidMount() {
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
-    socket.on("FromAPI", data => this.setState({ response: data }));
+    socket.on(
+        "FromAPI",
+            data => this.setState({ response: data }));
   }
   render() {
     const { response } = this.state;
@@ -21,7 +23,7 @@ class Status extends Component {
             <div style={{ textAlign: "center" }}>
               {response
                   ? <p>
-                    Last Block: {response}
+                    Last Block: {response._creatorstats_mc_cnt2048}
                   </p>
                   : <p>Loading...</p>}
             </div>
