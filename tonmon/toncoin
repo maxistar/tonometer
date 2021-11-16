@@ -1,0 +1,40 @@
+# metrics file generated at 1637042402 (2021-11-16 06:00:02)
+# HELP toncoin _cur_validators Current number of validators
+# TYPE toncoin _cur_validators gauge
+toncoin _cur_validators=148
+# HELP toncoin _mc_last_block Masterchain block height
+# TYPE toncoin _mc_last_block gauge
+toncoin _mc_last_block=16119425
+# HELP toncoin _elections_stakes Amount of stakes for current elections
+# TYPE toncoin _elections_stakes gauge
+toncoin _elections_stakes=1.73856e+08
+# HELP toncoin _elections_state Elections state
+# TYPE toncoin _elections_state gauge
+toncoin _elections_state=1
+# HELP toncoin _elections_participants Number of participants in elections
+# TYPE toncoin _elections_participants gauge
+toncoin _elections_participants=291
+# HELP toncoin _elections_contract_balance Amount of GRAMS staked
+# TYPE toncoin _elections_contract_balance gauge
+toncoin _elections_contract_balance=198484704
+# HELP toncoin _creatorstats_mc_total Total creatorstats for masterchain
+# TYPE toncoin _creatorstats_mc_total gauge
+toncoin _creatorstats_mc_total=16119425
+# HELP toncoin _creatorstats_mc_cnt2048 cnt2048 creatorstats for masterchain
+# TYPE toncoin _creatorstats_mc_cnt2048 gauge
+toncoin _creatorstats_mc_cnt2048=574.252
+# HELP toncoin _creatorstats_mc_cnt65536 cnt65536 creatorstats for masterchain
+# TYPE toncoin _creatorstats_mc_cnt65536 gauge
+toncoin _creatorstats_mc_cnt65536=18267.1
+# HELP toncoin _creatorstats_shard_total Total creatorstats for shardchains
+# TYPE toncoin _creatorstats_shard_total gauge
+toncoin _creatorstats_shard_total=172295517
+# HELP toncoin _creatorstats_shard_cnt2048 cnt2048 creatorstats for shardchains
+# TYPE toncoin _creatorstats_shard_cnt2048 gauge
+toncoin _creatorstats_shard_cnt2048=635.045
+# HELP toncoin _creatorstats_shard_cnt65536 cnt65536 creatorstats for shardchains
+# TYPE toncoin _creatorstats_shard_cnt65536 gauge
+toncoin _creatorstats_shard_cnt65536=20292.8
+# HELP toncoin _transactions Transactions counter
+# TYPE toncoin _transactions counter
+toncoin _transactions=19005
