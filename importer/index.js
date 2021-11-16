@@ -7,23 +7,19 @@ const influx = new Influx.InfluxDB(process.env.INFLUXDB_URL);
 
 async function loadNames() {
     try {
+        const msStart = (new Date()).getMilliseconds();
         const response = await fetch('https://api.ton.sh/getCoinPrice');
         const names = await response.json();
-        console.log(names);
+        const msEnd = (new Date()).getMilliseconds();
 
-        influx.writePoints([
+        await influx.writePoints([
             {
-                measurement: 'tonth',
-                tags: {
-                    unit: locationObj.rawtide.tideInfo[0].units,
-                    location: locationObj.rawtide.tideInfo[0].tideSite,
-                },
-                fields: { height: tidePoint.height },
-                timestamp: tidePoint.epoch,
-            }()
+                measurement: 'ton_th',
+                fields: {price: names.result, latency: msEnd - msStart},
+            }
+        ]);
     } catch (e) {
         console.log(e)
     }
-  // logs [{ name: 'Joker'}, { name: 'Batman' }]
 }
 loadNames();
