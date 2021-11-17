@@ -1,3 +1,4 @@
+# Tonometer.xyz TON status page
 
 [Frontend Contest: TON status page, Stage 1](https://github.com/newton-blockchain/TIPs/issues/43)
 
@@ -16,9 +17,14 @@ In particular, the page should display:
 
 API and integration with notification services (Telegram channel/bot) will increase your chances to win.
 
-Evaluation priorities:
 
-- The coverage and detail of basic metrics.
-- Speed and aesthetic appearance.
-- The complexity of the service deployment (we expect detailed instructions).
-- Understandability of the code and the possibility of its further support.
+# Deployment
+
+# Development
+```shell
+cd ./backend
+yarn install
+yarn start
+```
+
+# Build Production Release
