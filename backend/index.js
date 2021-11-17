@@ -33,31 +33,20 @@ app.get('/*', function(req, res) {
 const getApiAndEmit = async (socket) => {
     try {
         const data = await getStatus(influx);
-        console.log(data);
         socket.emit("FromAPI", data);
     } catch (error) {
         console.error(`Error: ${error.code}`);
     }
 };
 
-io.on("connection", socket => {
-    console.log("New client connected"), setInterval(
-        () => getApiAndEmit(socket),
-        10000
-    );
-    socket.on("disconnect", () => console.log("Client disconnected"));
-});
-
 let interval;
 
 io.on("connection", socket => {
-    console.log("New client connected");
     if (interval) {
         clearInterval(interval);
     }
     interval = setInterval(() => getApiAndEmit(socket), 10000);
     socket.on("disconnect", () => {
-        console.log("Client disconnected");
     });
 });
 

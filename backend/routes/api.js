@@ -9,7 +9,7 @@ export default (influx) => {
     });
 
     router.get("/info", async (req, res) => {
-        res.send(await getStatus(influx)).status(200);
+        res.send(await getStatus(influx, true)).status(200);
     });
 
     return router;

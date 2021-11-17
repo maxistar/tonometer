@@ -1,5 +1,8 @@
-
-const getStatus = async (influx) => {
+let cache = null;
+const getStatus = async (influx, cached) => {
+    if (cached && cache) {
+        return cache;
+    }
     try {
         const items = await influx.query(
             'SELECT _creatorstats_mc_cnt2048, \n' +
@@ -28,8 +31,8 @@ const getStatus = async (influx) => {
             'ORDER BY DESC ' +
             'LIMIT 1'
         );
-
-        return {info: items[0], general: ton_sh[0]};
+        cache = {info: items[0], general: ton_sh[0]};
+        return cache;
     } catch (e) {
         return [];
     }
