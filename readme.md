@@ -1,5 +1,7 @@
 # Tonometer.xyz TON status page
 
+![Screenshot](./screenshot.png)
+
 [Frontend Contest: TON status page, Stage 1](https://github.com/newton-blockchain/TIPs/issues/43)
 
 Task:
@@ -17,8 +19,8 @@ In particular, the page should display:
 
 API and integration with notification services (Telegram channel/bot) will increase your chances to win.
 
-
-# Deployment
+# Demo
+The demo is available [here](https://tonometer.xyz).
 
 # Development
 ```shell
@@ -28,37 +30,42 @@ yarn start
 ```
 
 # Build Production Release
+```shell
+cd ./frontend
+yarn install
+yarn build
+```
 
-
-this project was made just for fun to get familiar with the platform. It should not be used for making the trading desisions. Author is not responsible for any finansicall loss.
+This project was made just for fun to get familiar with the platform. 
+It should not be used for making the trading decisions. Author is not responsible for any financial loss.
 some data sown on the pages can be outdated, some even could be still mocked.
 
 -React Material Design set of components for the UI
 - React
-- InfluxDB Timeseries database ideal for data storing.
+- InfluxDB Time series database ideal for data storing.
 - stream.io
 - Tonmon set of scrips to parse and store lite client response.
 
-Further development
+# Further development
 - create a chat boat and robot for notifications
 - allow websockets for socket.io
-- load price trough anothe api, ton.sh seems returns always the same
-- add more servers to harvest the data, right now big part of it works on my local compiter.
-- setup proper deployment strategy using apache-modproxy and forever is questionable solution, nginx on top of cybernetes cluster would be more stable.
+- load price trough another api, ton.sh seems returns always the same
+- add more servers to harvest the data, right now big part of it works on my local computer.
+- setup proper deployment strategy using apache-modproxy and forever is questionable solution, 
+- nginx on top of cybernetes cluster would be more stable.
 
 Deployment
 forever
 
-Architercture
-frontend - react js app
-backend - nodejs app
-importer - scripts to import global data
-tomnon - scripts to import lite client output
-modified version of tonmon made to work with influxdb instead if the original one.
+# Architecture
+- frontend - react js app
+- backend - nodejs app
+- importer - scripts to import global data
+- tomnon - scripts to import lite client output (modified version of tonmon made to work with influxdb instead if the original one.)
 
-Data Harvesting
-CQRS approach allows to scale app very esily. The different parts of the app can be geographically distributed which makes the final result even more precise. The components of the system are communicating gogether writing and reading data to influxdb database.
-The UI panel is simple React Js App on top of node.js api, which used Influxdb for data aggregation. There is also a possibility to show data in grafana.
-Since the data collection and visialisation are separated it makes the app really fast.
-
-[image]
+# Data Harvesting
+CQRS approach allows scaling app very easily. The different parts of the app can be geographically distributed which makes the final result even more precise. 
+The components of the system are communicating together writing and reading data to influxdb database.
+The UI panel is simple React Js App on top of node.js api, which used Influxdb for data aggregation. 
+There is also a possibility to show data in grafana.
+Since the data collection and visualisation are separated it makes the app really fast.
