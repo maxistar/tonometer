@@ -8,6 +8,6 @@ export { default as AppNewUsers } from './AppNewUsers';
 export { default as AppOrderTimeline } from './AppOrderTimeline';
 export { default as AppTasks } from './AppTasks';
 export { default as AppTrafficBySite } from './AppTrafficBySite';
-export { default as AppWebsiteVisits } from './AppWebsiteVisits';
+export { default as AppWebsiteVisits } from './TonCoinPrice';
 export { default as AppWeeklySales } from './AppWeeklySales';
 export { default as InfoPanel } from './InfoPanel';

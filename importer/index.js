@@ -16,7 +16,7 @@ async function loadNames() {
             {
                 measurement: 'ton_th',
                 fields: {
-                    price: names.result + Math.random(), //always return the same, add some latency!
+                    price: names.result + Math.random(), //always returns the same, add some latency!
                     latency: msEnd - msStart
                 },
             }

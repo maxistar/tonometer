@@ -15,11 +15,21 @@ class DashboardAppContainer extends Component {
         fetch("/api/info")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 this.setState({
                     response: data
                 });
+                this.loadPricesData();
                 this.setupUpdate();
+            });
+    }
+
+    loadPricesData() {
+        fetch("/api/prices")
+            .then((res) => res.json())
+            .then((data) => {
+                this.setState({
+                    priceData: data
+                });
             });
     }
 
@@ -32,9 +42,9 @@ class DashboardAppContainer extends Component {
     }
 
     render() {
-        const { response } = this.state;
+        const { response, priceData } = this.state;
         return (
-            <DashboardApp data={response} />
+            <DashboardApp data={response} priceData={priceData} />
         );
     }
 }

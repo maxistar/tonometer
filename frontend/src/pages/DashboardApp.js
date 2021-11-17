@@ -7,9 +7,10 @@ import {
   AppConversionRates,
   InfoPanel
 } from '../components/_dashboard/app';
+import TonCoinPrice from "../components/_dashboard/app/TonCoinPrice";
 
 export default function DashboardApp(props) {
-  const {data} = props;
+  const {data, priceData} = props;
   const {info, general} = data;
 
   return info ? (
@@ -23,7 +24,7 @@ export default function DashboardApp(props) {
         <Grid container spacing={3}>
 
           <Grid item xs={12} sm={6} md={3}>
-            <InfoPanel value={general.price} label={'Price\n'} />
+            <InfoPanel value={general.price.toFixed(4)} label={'Price $\n'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -67,7 +68,7 @@ export default function DashboardApp(props) {
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits />
+            {priceData ? (<TonCoinPrice priceData={priceData} />) : (<div>Loading...</div>)}
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
