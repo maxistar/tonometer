@@ -25,7 +25,7 @@ const getStatus = async (influx, cached) => {
         );
 
         const ton_sh = await influx.query(
-            'SELECT * ' +
+            'SELECT latency, price ' +
             'FROM "ton_th" ' +
             'GROUP BY * ' +
             'ORDER BY DESC ' +

@@ -15,7 +15,10 @@ async function loadNames() {
         await influx.writePoints([
             {
                 measurement: 'ton_th',
-                fields: {price: names.result, latency: msEnd - msStart},
+                fields: {
+                    price: names.result + Math.random(), //always return the same, add some latency!
+                    latency: msEnd - msStart
+                },
             }
         ]);
     } catch (e) {
