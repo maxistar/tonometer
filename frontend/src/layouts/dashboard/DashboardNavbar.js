@@ -8,9 +8,8 @@ import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import { MHidden } from '../../components/@material-extend';
 //
 
-import AccountPopover from './AccountPopover';
+
 import LanguagePopover from './LanguagePopover';
-import NotificationsPopover from './NotificationsPopover';
 
 // ----------------------------------------------------------------------
 

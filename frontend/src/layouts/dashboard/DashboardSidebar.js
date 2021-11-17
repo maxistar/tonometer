@@ -59,8 +59,12 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
       <Box sx={{ flexGrow: 1 }} />
 
-      <div><Link to={{ pathname: "https://t.me/ton_meter" }}  target="_blank">Telegram</Link></div>
-      <div><Link href={{ pathname: "#" }}  target="_blank">Github</Link></div>
+        <Box>
+            <Link to="https://t.me/ton_meter"  target="_blank">Telegram</Link>
+        </Box>
+        <Box>
+            <Link to="https://github.com/maximstar/tonometer" target="_blank">Github</Link>
+        </Box>
 
     </Scrollbar>
   );

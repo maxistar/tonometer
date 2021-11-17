@@ -1,10 +1,7 @@
 import { Box, Grid, Container, Typography } from '@mui/material';
 import Page from '../components/Page';
 import {
-  AppWeeklySales,
   AppCurrentVisits,
-  AppWebsiteVisits,
-  AppConversionRates,
   InfoPanel
 } from '../components/_dashboard/app';
 import TonCoinPrice from "../components/_dashboard/app/TonCoinPrice";
@@ -24,11 +21,11 @@ export default function DashboardApp(props) {
         <Grid container spacing={3}>
 
           <Grid item xs={12} sm={6} md={3}>
-            <InfoPanel value={general.price.toFixed(4)} label={'Price $\n'} />
+            <InfoPanel value={general.price.toFixed(4)} label={'Price USD\n'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <InfoPanel value={general.latency} label={'TON.th Latency (ms)\n'} />
+            <InfoPanel value={general.latency} label={'TON.sh Latency (ms)\n'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
