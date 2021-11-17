@@ -8,6 +8,7 @@ class DashboardAppContainer extends Component {
         super(props);
         this.state = {
             response: false,
+            priceData: false,
             endpoint: ''
         };
     }

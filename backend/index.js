@@ -5,7 +5,8 @@ import api from './routes/api.js';
 import Influx from 'influx';
 import dotenv from 'dotenv';
 import * as path from "path";
-import getStatus from "./api/status.js";
+import startEmitter from "./api/emiter.js";
+import loadPrices from "./api/prices.js";
 
 dotenv.config();
 const port = process.env.PORT || 3002;
@@ -30,25 +31,8 @@ app.get('/*', function(req, res) {
     })
 })
 
-const getApiAndEmit = async (socket) => {
-    try {
-        const data = await getStatus(influx);
-        socket.emit("FromAPI", data);
-    } catch (error) {
-        console.error(`Error: ${error.code}`);
-    }
-};
-
-let interval;
-
-io.on("connection", socket => {
-    if (interval) {
-        clearInterval(interval);
-    }
-    interval = setInterval(() => getApiAndEmit(socket), 10000);
-    socket.on("disconnect", () => {
-    });
-});
+startEmitter(influx, io);
+setInterval(() => loadPrices(influx, false), 10000);
 
 server.listen(
     port,

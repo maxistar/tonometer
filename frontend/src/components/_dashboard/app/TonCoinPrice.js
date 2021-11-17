@@ -3,40 +3,33 @@ import ReactApexChart from 'react-apexcharts';
 import { Card, CardHeader, Box } from '@mui/material';
 import { BaseOptionChart } from '../../charts';
 
-const formatChartData = (data) => {
-  return {
-      name: 'Team A',
-      type: 'column',
-      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 0]
-  };
+const getPriceValues = (data) => {
+  return data.map((value) => {
+    return !!value.mean ? value.mean.toFixed(4) : 0;
+  });
 }
 
-const DATA = {
-  name: 'Team A',
-  type: 'column',
-  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 0]
-};
+const getPriceLabels = (data) => {
+  return data.map((value) => {
+    return value.time;
+  });
+}
 
-export default function TonCoinPrice(props) {
-  console.log(props);
-  const {priceData} = props;
-  const chartOptions = merge(BaseOptionChart(), {
+
+const formatChartData = (data, label) => {
+  return [{
+      name: label,
+      type: 'column',
+      data: getPriceValues(data)//[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 0]
+  }];
+}
+
+const formatChartOptions = (data) => {
+  return merge(BaseOptionChart(), {
     stroke: { width: [0, 2, 3] },
     plotOptions: { bar: { columnWidth: '11%', borderRadius: 4 } },
     fill: { type: ['solid', 'gradient', 'solid'] },
-    labels: [
-      '01/01/2003',
-      '02/01/2003',
-      '03/01/2003',
-      '04/01/2003',
-      '05/01/2003',
-      '06/01/2003',
-      '07/01/2003',
-      '08/01/2003',
-      '09/01/2003',
-      '10/01/2003',
-      '11/01/2003'
-    ],
+    labels: getPriceLabels(data),
     xaxis: { type: 'datetime' },
     tooltip: {
       shared: true,
@@ -51,12 +44,19 @@ export default function TonCoinPrice(props) {
       }
     }
   });
+}
+
+
+export default function TonCoinPrice(props) {
+  console.log(props);
+  const {priceData} = props;
+  const chartOptions = formatChartOptions(priceData);
 
   return (
     <Card>
       <CardHeader title="TONCoin Price" subheader="(+43%) than last week" />
       <Box sx={{ p: 3, pb: 1 }} dir="ltr">
-        <ReactApexChart type="line" series={ DATA } options={ chartOptions } height={ 364 } />
+        <ReactApexChart type="line" series={ formatChartData(priceData, 'Ton.sh') } options={ chartOptions } height={ 364 } />
       </Box>
     </Card>
   );
