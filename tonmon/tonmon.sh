@@ -11,10 +11,10 @@ check_files_exists()
     if [ $# -ge 1 ]; then
         local files=("$@")
         for file in "${files[@]:0:${#files[@]}}"; do
-			if [ ! -f "$file" ]; then
-		        echo "File not found: $file"
-	        fi
-		done
+      if [ ! -f "$file" ]; then
+            echo "File not found: $file"
+          fi
+    done
     else
         echo "no files provided for checking"
     fi
@@ -23,16 +23,16 @@ check_files_exists()
 check_files_exists ${LITECONFIG}
 
 check_installed() {
-	EXIT=0
-	for cmd in "grep" "awk" "sed" "bc" ${LITECLIENTBIN}; do
-		if ! [ -x "$(command -v $cmd)" ]; then
-			echo "Error: $cmd is not installed." >&2
-			EXIT=1
-		fi
-	done
-	if [ "$EXIT" -eq 1 ]; then
-		exit 1
-	fi
+  EXIT=0
+  for cmd in "grep" "awk" "sed" "bc" ${LITECLIENTBIN}; do
+    if ! [ -x "$(command -v $cmd)" ]; then
+      echo "Error: $cmd is not installed." >&2
+      EXIT=1
+    fi
+  done
+  if [ "$EXIT" -eq 1 ]; then
+    exit 1
+  fi
 }
 
 check_installed
@@ -87,7 +87,7 @@ ACTIVE_ELECTION_ID=$(get_elections_address)
 
 
 logdate() {
-	date '+%s (%Y-%m-%d %H:%M:%S)'
+  date '+%s (%Y-%m-%d %H:%M:%S)'
 }
 
 get_mc_last_block()
@@ -120,7 +120,7 @@ get_cur_validators()
 #    echo "# HELP ${metric} ${description}"
 #    echo "# TYPE ${metric} ${metric_type}"
 #    while read -r line
-#    do 
+#    do
 #        local pub_key weight
 #        read -r pub_key weight <<< "$(echo "$line"|awk '{print $1"="$2}')"
 #        echo  "${metric} public_key=\"$pub_key\" ${weight}"
@@ -168,7 +168,7 @@ get_elections_participants()
 #    echo "# HELP ${metric} ${description}"
 #    echo "# TYPE ${metric} ${metric_type}"
 #    while read -r line
-#    do 
+#    do
 #        local pub_key value
 #        read -r pub_key value <<< "$(echo "$line"|awk '{print $1"="$2/1000000000}')"
 #        if [ "$pub_key" != 0 ]; then
@@ -223,7 +223,7 @@ get_shards_info()
 #    echo "# HELP ${metric} ${description}"
 #    echo "# TYPE ${metric} ${metric_type}"
 #    while read -r line
-#    do 
+#    do
 #        local shard_num shard_height
 #        read -r shard_num shard_height <<< "$(echo "$line"|awk '{print $1"="$2}')"
 #        echo  "${metric},shard_num=\"$shard_num\" ${shard_height}"
@@ -246,7 +246,7 @@ get_creator_stats()
 
 print_metrics ()
 {
-    echo "# metrics file generated at $(logdate)" 
+    echo "# metrics file generated at $(logdate)"
     get_cur_validators
     get_mc_last_block
     get_elections_stakes

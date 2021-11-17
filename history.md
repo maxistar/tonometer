@@ -1,5 +1,7 @@
 17.11.2021
 Submit To Contest!
+transactions, blocks, validators
+
 16.11.2021
 15.11.2021
 + add material design
@@ -34,3 +36,4 @@ https://prometheus.io/docs/prometheus/latest/getting_started/
 curl -i -XPOST "http://10.8.1.19:8086/write?db=db0" --data-binary=@toncoin
 
 12.11.2021
+
