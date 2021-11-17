@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
-import { Box, Drawer } from '@mui/material';
+import {Box, Drawer, Link} from '@mui/material';
 // components
 import Logo from '../../components/Logo';
 import Scrollbar from '../../components/Scrollbar';
@@ -59,6 +59,8 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
       <Box sx={{ flexGrow: 1 }} />
 
+      <div><Link to={{ pathname: "https://t.me/ton_meter" }}  target="_blank">Telegram</Link></div>
+      <div><Link href={{ pathname: "#" }}  target="_blank">Github</Link></div>
 
     </Scrollbar>
   );

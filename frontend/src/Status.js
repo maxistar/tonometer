@@ -6,16 +6,29 @@ class Status extends Component {
     super(props);
     this.state = {
       response: false,
-      endpoint: process.env.BACKEND_URL
+      endpoint: ''
     };
   }
   componentDidMount() {
-    const { endpoint } = this.state;
-    const socket = socketIOClient(endpoint);
-    socket.on(
-        "FromAPI",
-            data => this.setState({ response: data }));
+      fetch("/api/info")
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(data);
+              this.setState({
+                  response: data
+              });
+              this.setupUpdate();
+          });
   }
+
+  setupUpdate() {
+      const { endpoint } = this.state;
+      const socket = socketIOClient(endpoint);
+      socket.on(
+          "FromAPI",
+          data => this.setState({ response: data }));
+  }
+
   render() {
     const { response } = this.state;
     return (

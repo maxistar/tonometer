@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "influx": "^5.9.2",
     "socket.io": "^4.3.2"
   },
-  "type": "module"
+  "scripts": {
+    "start": "node index.js"
+  }
 }
