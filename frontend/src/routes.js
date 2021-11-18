@@ -1,7 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
-import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 
 import Validators from './pages/Validators';
@@ -25,7 +24,7 @@ export default function Router() {
     },
     {
       path: '/',
-      element: <LogoOnlyLayout />,
+      element: <DashboardLayout />,
       children: [
         { path: '404', element: <NotFound /> },
         { path: '/', element: <Navigate to="/dashboard/app" /> },

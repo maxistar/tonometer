@@ -23,6 +23,18 @@ const RootStyle = styled('div')(({ theme }) => ({
   }
 }));
 
+const ListItemStyle = styled((props) => <Link disableGutters {...props} />)(
+    ({ theme }) => ({
+        ...theme.typography.body2,
+        height: 40,
+        position: 'relative',
+        textTransform: 'capitalize',
+        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(2.5),
+        color: theme.palette.text.secondary,
+    })
+);
+
 // ----------------------------------------------------------------------
 
 DashboardSidebar.propTypes = {
@@ -59,12 +71,12 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
       <Box sx={{ flexGrow: 1 }} />
 
-        <Box>
-            <Link to="https://t.me/ton_meter"  target="_blank">Telegram</Link>
-        </Box>
-        <Box>
-            <Link to="https://github.com/maximstar/tonometer" target="_blank">Github</Link>
-        </Box>
+        <ListItemStyle rel="noreferrer" href="https://t.me/ton_meter"  target="_blank">
+            Telegram
+        </ListItemStyle>
+        <ListItemStyle rel="noreferrer" href="https://github.com/maxistar/tonometer" target="_blank">
+            Github
+        </ListItemStyle>
 
     </Scrollbar>
   );

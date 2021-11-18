@@ -1,12 +1,10 @@
 import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 // material
 import {
     Card,
     Table,
     Stack,
-    Avatar,
     Checkbox,
     TableRow,
     TableBody,
@@ -18,12 +16,11 @@ import {
 } from '@mui/material';
 // components
 import Page from '../components/Page';
-import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
 import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../components/_dashboard/user';
 //
-import USERLIST from '../_mocks_/validators';
+import USERLIST from '../_mocks_/transactions';
 
 // ----------------------------------------------------------------------
 
