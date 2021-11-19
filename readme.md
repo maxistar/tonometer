@@ -2,6 +2,8 @@
 
 ![Screenshot](./screenshot.png)
 
+The data is collected on a home server where a light client of the TON network is assembled. Lite client requests data about the system and puts it in the InfluxDB database. The server part written in nodejs, it reads the prepared data from InfuxDB and shows is the browser by the client part written in javascript react.
+
 [Frontend Contest: TON status page, Stage 1](https://github.com/newton-blockchain/TIPs/issues/43)
 
 Task:
